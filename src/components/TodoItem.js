@@ -13,7 +13,7 @@ function TodoItem({id, content, isDone, createDate, onUpdate, onDelete}) {
     }
 
     return (
-        <div className = "TodoItem" key = {id}>
+        <div className = "TodoItem">
             <div className = "checkbox_col"> 
                 <input type="checkbox" onChange={onClickUpdate} checked={isDone} />
             </div>
