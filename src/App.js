@@ -33,19 +33,51 @@ const mockData = [
 //할일 : 배열 [객체, 객체, 객체]
   const [todo , setTodo] = useState(mockData); 
 
+// useRef : 렌더링 이후에  임의의 새로운 고유한 값을 생성
+    const idRef = useRef(3); 
+
 
   const onCreate = (content) => {
+    //하위 컴포너트로 이벤트 받아서 ==> onCreate 프롭스를 통해서 전송됨. 
     console.log ("App 컴포넌트에 값이 잘 전송됨 ")
     console.log(content); 
+
+    //하위에서 받은 content 를 배열의 첫 번째 객체로 추가함. 
+    const newItem = {
+      id :  idRef.current , 
+  //    content: content,       <== 객체의 필드명과 변수명이 동일달때 축약 사용 가능 , ES6 
+      content,
+      isDone : false , 
+      createDate : new Date().getTime()
+    }
+
+    // 배열에 추가함. 
+    setTodo ( [newItem, ...todo]); 
+    idRef.current += 1 ; 
+
   }
 
-  const onUpdate = () => {
-    console.log("업데이트 함수 호출됨 !!!")
-  }  
 
-  const onDelete = () => {
-    console.log ("삭제 함수 호출됨 ")
-  }
+  const onUpdate = (targetId) => {
+    setTodo (
+      todo.map((it) => 
+        // it.id 와 targetID 가 같은 값을 찾아서 isDone 필드의 값을 수정 
+        //   === : 값과 타입이 모두 같을때 
+        it.id === targetId ? { ...it, isDone : !it.isDone } : it 
+      
+        )
+    );
+  }; 
+
+  // 배열의 객체의 id 필드의 내용을 검색해서 삭제 
+  // it.id 필드의 값이 targetId필드의 내용과 같지 안은 것만 새로운 배열에 담는다. 
+  const onDelete = (targetId) => {
+
+    setTodo ( todo.filter ((it) => 
+          it.id !== targetId 
+    )) ; 
+
+  }; 
 
 
   return (

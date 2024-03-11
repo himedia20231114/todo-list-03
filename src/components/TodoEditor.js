@@ -22,6 +22,7 @@ function TodoEditor({onCreate}) {
         }
     }
 
+    
     const onSubmit = () => {
         console.log("전송 !!!")
         // input의 값을 가지고 부모컴포넌트에게 값을 전당 
