@@ -1,4 +1,7 @@
 import React from 'react';
+import './TodoEditor.css'
+
+
 import {useState, useRef} from 'react';
     //useState () : 상태값이 변경되면 자동으로 랜더링됨 
     //useRef() : 특정 엘리먼트에 포커스를 위치 , 포커스를 위치할 참조값을 넣음.  
@@ -32,9 +35,9 @@ function TodoEditor({onCreate}) {
         setContent('') ; 
     }
     return (
-        <div>
-            <h4> 새로운 todo 작성하기 </h4>
-            <div>
+        <div className='TodoEditor'>
+            <h4> 새로운 todo 작성하기 🍟🍔🥟 </h4>
+            <div className = 'editor_wrapper'>
                 <input 
                     ref = {inputRef}
                     value = {content}

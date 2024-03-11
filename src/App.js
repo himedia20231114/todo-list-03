@@ -17,13 +17,13 @@ const mockData = [
     createDate : new Date().getDate()
   },
   {
-    id : 2 , 
+    id : 1 , 
     isDone : true, 
     content : "노래 연습하기", 
     createDate : new Date().getDate()
   },
   {
-    id : 3 , 
+    id : 2 , 
     isDone : false, 
     content : "빨래하기", 
     createDate : new Date().getDate()

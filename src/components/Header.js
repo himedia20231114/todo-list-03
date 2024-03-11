@@ -1,7 +1,7 @@
 import React from 'react';
 
 function Header() {
-    // win + .    : 이모콘티 
+    // win + .    : 이모콘티 넣기 
 
     return (
         <div>
