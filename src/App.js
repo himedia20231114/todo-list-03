@@ -30,6 +30,10 @@ const mockData = [
   }
 ]; 
 
+// Date().getDate()     : UNIX 시간을 생성        (1970.1.1)
+// Date().getTime()     : 현재 시스템의 시간을 생성 
+
+
 //할일 : 배열 [객체, 객체, 객체]
   const [todo , setTodo] = useState(mockData); 
 
@@ -59,6 +63,9 @@ const mockData = [
 
 
   const onUpdate = (targetId) => {
+    console.log("업데이트 잘 호출됨 !!!!"); 
+    console.log (targetId) ; 
+
     setTodo (
       todo.map((it) => 
         // it.id 와 targetID 가 같은 값을 찾아서 isDone 필드의 값을 수정 
@@ -72,6 +79,8 @@ const mockData = [
   // 배열의 객체의 id 필드의 내용을 검색해서 삭제 
   // it.id 필드의 값이 targetId필드의 내용과 같지 안은 것만 새로운 배열에 담는다. 
   const onDelete = (targetId) => {
+    console.log("삭제 잘 호출됨 !!!!"); 
+    console.log (targetId) ; 
 
     setTodo ( todo.filter ((it) => 
           it.id !== targetId 
