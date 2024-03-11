@@ -70,6 +70,7 @@ function TodoList({todo, onUpdate, onDelete }) {
                             id = {it.id}
                             content = {it.content}
                             isDone={it.isDone}
+                            createDate={it.createDate}
                             onUpdate = {onUpdate}
                             onDelete = {onDelete}
                         
